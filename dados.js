@@ -58,7 +58,7 @@ const CONFIG = {
       idade: 3,
       emoji: "🚀",
       cor: "#2FA866",          // verde
-      pontos: 4,
+      pontos: 6,
       meta: 20,               // meta menor porque é pequeno
       premio: "Sorvete 🍦",
       acoes: []
