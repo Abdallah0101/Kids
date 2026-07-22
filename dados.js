@@ -47,7 +47,7 @@ const CONFIG = {
       premio: "Brinquedo surpresa 🎁",
       acoes: [
         {
-          texto: "Puxou o cabelo do Ilyaas",
+          texto: "Falou الله يسامحك",
           pontos: +0,
         },
       ]
