@@ -69,12 +69,12 @@ const CONFIG = {
       idade: 2,
       emoji: "🌸",
       cor: "#8E5DE8",          // roxo
-      pontos: 2,
+      pontos: 1,
       meta: 15,               // metinha de bebê 😄
       premio: "Docinho 🧁",
       acoes: [
         {
-          texto: "gritona feia",
+          texto: "gritona feia. ta perdendo hasanat",
           pontos: +0,
         },
       ]
