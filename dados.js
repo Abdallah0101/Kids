@@ -26,12 +26,12 @@ const CONFIG = {
       idade: 10,
       emoji: "🦋",
       cor: "#E85D9E",          // rosa
-      pontos: 4,
+      pontos: 5,
       meta: 30,
       premio: "Chocolate grande 🍫",
       acoes: [
         {
-          texto: "Linda, acordou bem calmo. mas fez carinha feia para Ilyaas",
+          texto: "Linda, acordou bem calma.",
           pontos: +0,
         },
       ]
@@ -39,7 +39,7 @@ const CONFIG = {
     {
       nome: "Malik",
       nomeArabe: "مالك",
-      idade: 5,
+      idade: 6,
       emoji: "🦁",
       cor: "#F5921B",          // laranja
       pontos: 5,
@@ -58,7 +58,7 @@ const CONFIG = {
       idade: 3,
       emoji: "🚀",
       cor: "#2FA866",          // verde
-      pontos: 3,
+      pontos: 5,
       meta: 20,               // meta menor porque é pequeno
       premio: "Sorvete 🍦",
       acoes: []
