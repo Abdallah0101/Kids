@@ -31,8 +31,8 @@ const CONFIG = {
       premio: "Chocolate grande 🍫",
       acoes: [
         {
-          texto: "Lindo, acordou bem calmo. gostei",
-          pontos: +3,
+          texto: "Linda, acordou bem calmo. mas fez carinha feia para Ilyaas",
+          pontos: +0,
         },
       ]
     },
@@ -48,7 +48,7 @@ const CONFIG = {
       acoes: [
         {
           texto: "Lindo, acordou bem calmo. gostei",
-          pontos: +3,
+          pontos: +0,
         },
       ]
     },
