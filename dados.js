@@ -72,7 +72,12 @@ const CONFIG = {
       pontos: 2,
       meta: 15,               // metinha de bebê 😄
       premio: "Docinho 🧁",
-      acoes: []
+      acoes: [
+        {
+          texto: "gritona feia",
+          pontos: +0,
+        },
+      ]
     }
   ]
 };
