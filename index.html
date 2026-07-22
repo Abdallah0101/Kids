@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🌟 Quadro das Estrelas da Família</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Nunito:wght@600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1:#FFF7DC; --bg2:#FFE3C2;
+    --ink:#4A3728;
+    --card:#FFFFFF;
+    --gold:#FFC63D;
+    --good:#3FBF7F;
+    --bad:#F26D6D;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    font-family:'Nunito',sans-serif;
+    background:linear-gradient(160deg,var(--bg1),var(--bg2));
+    min-height:100vh;
+    color:var(--ink);
+    padding:20px 16px 40px;
+    overflow-x:hidden;
+  }
+  .ar{font-family:'Baloo Bhaijaan 2',cursive;}
+
+  /* estrelas flutuando no fundo */
+  .float-star{position:fixed;font-size:26px;opacity:.18;animation:floaty 9s ease-in-out infinite;pointer-events:none;z-index:0;}
+  @keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-26px) rotate(18deg)}}
+
+  header{text-align:center;position:relative;z-index:1;margin-bottom:6px;}
+  h1{
+    font-family:'Baloo Bhaijaan 2',cursive;
+    font-size:clamp(30px,5.5vw,52px);
+    font-weight:800;
+    letter-spacing:.5px;
+  }
+  h1 .spark{display:inline-block;animation:spin 6s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .frase{
+    font-size:clamp(16px,2.6vw,22px);
+    font-weight:800;
+    background:#fff;
+    display:inline-block;
+    padding:8px 22px;
+    border-radius:999px;
+    box-shadow:0 4px 0 rgba(74,55,40,.12);
+    margin-top:8px;
+  }
+
+  .grid{
+    position:relative;z-index:1;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:18px;
+    max-width:1200px;
+    margin:24px auto 0;
+  }
+  .card{
+    background:var(--card);
+    border-radius:28px;
+    padding:22px 22px 18px;
+    box-shadow:0 8px 0 rgba(74,55,40,.10);
+    border-top:10px solid var(--kid);
+    position:relative;
+    transition:transform .3s;
+  }
+  .card.leader{transform:scale(1.03);box-shadow:0 10px 0 rgba(74,55,40,.14),0 0 0 4px var(--gold);}
+  .crown{
+    position:absolute;top:-34px;left:50%;transform:translateX(-50%);
+    font-size:44px;filter:drop-shadow(0 3px 2px rgba(0,0,0,.15));
+    animation:bounce 1.6s ease-in-out infinite;
+  }
+  @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-8px)}}
+  .rank-badge{
+    position:absolute;top:14px;right:16px;
+    font-weight:800;font-size:15px;color:#fff;
+    background:var(--kid);padding:4px 12px;border-radius:999px;
+  }
+  .kid-top{display:flex;align-items:center;gap:14px;}
+  .avatar{
+    font-size:52px;width:78px;height:78px;flex:0 0 78px;
+    display:flex;align-items:center;justify-content:center;
+    background:color-mix(in srgb,var(--kid) 18%,#fff);
+    border-radius:50%;
+  }
+  .nome{font-family:'Baloo Bhaijaan 2',cursive;font-size:28px;font-weight:800;line-height:1.05;}
+  .nome-ar{font-size:24px;font-weight:700;color:var(--kid);}
+  .idade{font-size:13px;font-weight:800;opacity:.55;}
+
+  .pontos{
+    display:flex;align-items:baseline;gap:8px;
+    margin:14px 0 4px;
+  }
+  .pontos .num{font-family:'Baloo Bhaijaan 2',cursive;font-size:46px;font-weight:800;color:var(--kid);line-height:1;}
+  .pontos .lbl{font-weight:800;font-size:15px;opacity:.6;}
+
+  .meta{font-size:14px;font-weight:800;margin-top:8px;display:flex;justify-content:space-between;}
+  .bar{
+    height:22px;background:#F1E9DC;border-radius:999px;overflow:hidden;margin-top:6px;
+  }
+  .fill{
+    height:100%;border-radius:999px;
+    background:repeating-linear-gradient(45deg,var(--kid),var(--kid) 12px,color-mix(in srgb,var(--kid) 70%,#fff) 12px,color-mix(in srgb,var(--kid) 70%,#fff) 24px);
+    width:0;transition:width 1.2s cubic-bezier(.2,.8,.2,1);
+  }
+  .premio-ok{
+    margin-top:10px;text-align:center;font-weight:800;font-size:17px;
+    background:#FFF3C9;border:2px dashed var(--gold);border-radius:14px;padding:8px;
+    animation:pulse 1.5s ease-in-out infinite;
+  }
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.03)}}
+
+  .acoes{margin-top:14px;border-top:2px dashed #EDE3D2;padding-top:10px;}
+  .acoes h3{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1px;opacity:.5;margin-bottom:6px;}
+  .acao{display:flex;justify-content:space-between;gap:10px;font-size:15px;font-weight:700;padding:4px 0;}
+  .acao .pts{font-weight:800;white-space:nowrap;}
+  .acao.mais .pts{color:var(--good);}
+  .acao.menos .pts{color:var(--bad);}
+
+  footer{
+    position:relative;z-index:1;text-align:center;margin-top:28px;
+    font-weight:800;font-size:15px;opacity:.65;
+  }
+  .erro{
+    position:relative;z-index:1;max-width:600px;margin:40px auto;text-align:center;
+    background:#fff;border-radius:20px;padding:24px;font-weight:800;
+    border:3px dashed var(--bad);
+  }
+  @media (prefers-reduced-motion:reduce){
+    .float-star,.crown,.premio-ok,h1 .spark{animation:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1><span class="spark">🌟</span> Quadro das Estrelas <span class="spark">🌟</span></h1>
+  <div class="frase" id="fraseDia"></div>
+</header>
+
+<div class="grid" id="grid"></div>
+
+<footer id="rodape"></footer>
+
+<script>
+/* ============================================================
+   ⚙️ NÃO PRECISA MEXER NESTE ARQUIVO NUNCA MAIS.
+   Todos os dados vêm do arquivo dados.js (na mesma pasta).
+   ============================================================ */
+
+const medalhas = ["🥇 1º lugar", "🥈 2º lugar", "🥉 3º lugar", "⭐ 4º lugar"];
+
+function estrelaFundo(){
+  const emojis = ["⭐","🌟","✨","💫"];
+  for(let i=0;i<14;i++){
+    const s=document.createElement("div");
+    s.className="float-star";
+    s.textContent=emojis[i%emojis.length];
+    s.style.left = Math.random()*95+"vw";
+    s.style.top  = Math.random()*95+"vh";
+    s.style.animationDelay = (Math.random()*8)+"s";
+    s.style.fontSize = (18+Math.random()*22)+"px";
+    document.body.appendChild(s);
+  }
+}
+
+function render(){
+  document.getElementById("fraseDia").textContent = CONFIG.fraseDoDia;
+
+  const ordenados = [...CONFIG.filhos].sort((a,b)=>b.pontos-a.pontos);
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+
+  ordenados.forEach((f,i)=>{
+    const meta = f.meta || CONFIG.metaPadrao;
+    const pct = Math.max(0, Math.min(100, (f.pontos/meta)*100));
+    const ganhou = f.pontos >= meta;
+    const lider = i===0 && f.pontos>0;
+
+    const card = document.createElement("div");
+    card.className = "card"+(lider?" leader":"");
+    card.style.setProperty("--kid", f.cor);
+
+    const acoesHtml = (f.acoes||[]).slice(0,4).map(a=>{
+      const mais = a.pontos>=0;
+      return `<div class="acao ${mais?'mais':'menos'}">
+        <span>${mais?'💚':'💔'} ${a.texto}</span>
+        <span class="pts">${mais?'+':''}${a.pontos} ⭐</span>
+      </div>`;
+    }).join("") || `<div class="acao"><span style="opacity:.5">Ainda sem registros hoje…</span></div>`;
+
+    card.innerHTML = `
+      ${lider?'<div class="crown">👑</div>':''}
+      <div class="rank-badge">${medalhas[i]||""}</div>
+      <div class="kid-top">
+        <div class="avatar">${f.emoji}</div>
+        <div>
+          <div class="nome">${f.nome} <span class="ar nome-ar">${f.nomeArabe}</span></div>
+          <div class="idade">${f.idade} anos</div>
+        </div>
+      </div>
+      <div class="pontos">
+        <span class="num">${f.pontos}</span>
+        <span class="lbl">estrelas ⭐</span>
+      </div>
+      <div class="meta">
+        <span>Prêmio: ${f.premio}</span>
+        <span>${f.pontos} / ${meta}</span>
+      </div>
+      <div class="bar"><div class="fill" data-pct="${pct}"></div></div>
+      ${ganhou?`<div class="premio-ok">🎉 PARABÉNS! Ganhou: ${f.premio} 🎉</div>`:''}
+      <div class="acoes">
+        <h3>Últimas ações</h3>
+        ${acoesHtml}
+      </div>`;
+    grid.appendChild(card);
+  });
+
+  // anima as barras depois de montar
+  requestAnimationFrame(()=>{
+    document.querySelectorAll(".fill").forEach(el=>{
+      el.style.width = el.dataset.pct+"%";
+    });
+  });
+
+  const agora = new Date();
+  document.getElementById("rodape").textContent =
+    "Atualizado em " + agora.toLocaleDateString("pt-BR") +
+    " às " + agora.toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"}) +
+    " · Com amor, Papai e Mamãe 💛";
+}
+
+/* Carrega dados.js SEMPRE fresquinho (?t=timestamp fura o
+   cache do navegador e do GitHub Pages) */
+function carregarDados(){
+  const s = document.createElement("script");
+  s.src = "dados.js?t=" + Date.now();
+  s.onload = ()=> render();
+  s.onerror = ()=>{
+    document.getElementById("grid").innerHTML =
+      `<div class="erro">😢 Não encontrei o arquivo <b>dados.js</b>.<br>
+       Ele precisa estar na mesma pasta do index.html.</div>`;
+  };
+  document.body.appendChild(s);
+}
+
+estrelaFundo();
+carregarDados();
+
+// 🔄 Tablet na parede: recarrega sozinho a cada 10 minutos
+setTimeout(()=>location.reload(), 10*60*1000);
+</script>
+</body>
+</html>
