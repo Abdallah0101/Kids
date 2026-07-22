@@ -30,7 +30,7 @@ const CONFIG = {
       meta: 30,
       premio: "Chocolate grande 🍫",
       acoes: [
-        // { texto: "Linda, acordou calma mas gritou um pouco", pontos: +3 },
+        { texto: "Linda, acordou calma mas gritou um pouco" },
       ]
     },
     {
@@ -42,7 +42,7 @@ const CONFIG = {
       pontos: 5,
       meta: 30,
       premio: "Brinquedo surpresa 🎁",
-      acoes: [{ texto: "Lindo, acordou bem calmo. gostei ", pontos: +3 },]
+      acoes: [{ texto: "Lindo, acordou bem calmo. gostei "]
     },
     {
       nome: "Ilyaas",
