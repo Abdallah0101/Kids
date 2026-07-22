@@ -26,12 +26,12 @@ const CONFIG = {
       idade: 10,
       emoji: "🦋",
       cor: "#E85D9E",          // rosa
-      pontos: 12,
+      pontos: 13,
       meta: 30,
       premio: "Chocolate grande 🍫",
       acoes: [
         {
-          texto: "Linda, acordou bem calma.",
+          texto: "Linda, fala coisas boas e fala حاضر.",
           pontos: +0,
         },
       ]
