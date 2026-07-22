@@ -26,11 +26,11 @@ const CONFIG = {
       idade: 10,
       emoji: "🦋",
       cor: "#E85D9E",          // rosa
-      pontos: 3,
+      pontos: 4,
       meta: 30,
       premio: "Chocolate grande 🍫",
       acoes: [
-        // { texto: "Ajudou a mamãe com a Tasnim", pontos: +3 },
+        // { texto: "Linda, acordou calma mas gritou um pouco", pontos: +3 },
       ]
     },
     {
@@ -39,10 +39,10 @@ const CONFIG = {
       idade: 5,
       emoji: "🦁",
       cor: "#F5921B",          // laranja
-      pontos: 3,
+      pontos: 5,
       meta: 30,
       premio: "Brinquedo surpresa 🎁",
-      acoes: []
+      acoes: [{ texto: "Lindo, acordou bem calmo. gostei ", pontos: +3 },]
     },
     {
       nome: "Ilyaas",
@@ -50,7 +50,7 @@ const CONFIG = {
       idade: 3,
       emoji: "🚀",
       cor: "#2FA866",          // verde
-      pontos: 1,
+      pontos: 3,
       meta: 20,               // meta menor porque é pequeno
       premio: "Sorvete 🍦",
       acoes: []
