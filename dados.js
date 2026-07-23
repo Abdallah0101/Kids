@@ -26,7 +26,7 @@ const CONFIG = {
       idade: 10,
       emoji: "🦋",
       cor: "#E85D9E",          // rosa
-      pontos: 23,
+      pontos: 25,
       meta: 30,
       premio: "Chocolate grande 🍫",
       acoes: [
@@ -42,7 +42,7 @@ const CONFIG = {
       idade: 6,
       emoji: "🦁",
       cor: "#F5921B",          // laranja
-      pontos: 24,
+      pontos: 25,
       meta: 30,
       premio: "Brinquedo surpresa 🎁",
       acoes: [
@@ -58,13 +58,13 @@ const CONFIG = {
       idade: 3,
       emoji: "🚀",
       cor: "#2FA866",          // verde
-      pontos: 8,
+      pontos: 9,
       meta: 20,               // meta menor porque é pequeno
       premio: "Sorvete 🍦",
       acoes: [
         {
           texto: "gritao.",
-          pontos: -1,
+          pontos: +1,
         },
       ]
     },
@@ -74,7 +74,7 @@ const CONFIG = {
       idade: 2,
       emoji: "🌸",
       cor: "#8E5DE8",          // roxo
-      pontos: 5,
+      pontos: 6,
       meta: 15,               // metinha de bebê 😄
       premio: "Docinho 🧁",
       acoes: [
