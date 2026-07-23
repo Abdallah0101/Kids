@@ -42,7 +42,7 @@ const CONFIG = {
       idade: 6,
       emoji: "🦁",
       cor: "#F5921B",          // laranja
-      pontos: 23,
+      pontos: 24,
       meta: 30,
       premio: "Brinquedo surpresa 🎁",
       acoes: [
@@ -58,7 +58,7 @@ const CONFIG = {
       idade: 3,
       emoji: "🚀",
       cor: "#2FA866",          // verde
-      pontos: 10,
+      pontos: 9,
       meta: 20,               // meta menor porque é pequeno
       premio: "Sorvete 🍦",
       acoes: [
@@ -74,7 +74,7 @@ const CONFIG = {
       idade: 2,
       emoji: "🌸",
       cor: "#8E5DE8",          // roxo
-      pontos: 6,
+      pontos: 5,
       meta: 15,               // metinha de bebê 😄
       premio: "Docinho 🧁",
       acoes: [
