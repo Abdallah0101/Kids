@@ -26,12 +26,12 @@ const CONFIG = {
       idade: 10,
       emoji: "🦋",
       cor: "#E85D9E",          // rosa
-      pontos: 22,
+      pontos: 23,
       meta: 30,
       premio: "Chocolate grande 🍫",
       acoes: [
         {
-          texto: "Linda, fala coisas boas e fala حاضر.",
+          texto: "Lindos e acordaram calmos.",
           pontos: +0,
         },
       ]
@@ -42,12 +42,12 @@ const CONFIG = {
       idade: 6,
       emoji: "🦁",
       cor: "#F5921B",          // laranja
-      pontos: 22,
+      pontos: 23,
       meta: 30,
       premio: "Brinquedo surpresa 🎁",
       acoes: [
         {
-          texto: "Falou الله يسامحك",
+          texto: "Lindos e acordaram calmos.",
           pontos: +0,
         },
       ]
@@ -58,10 +58,15 @@ const CONFIG = {
       idade: 3,
       emoji: "🚀",
       cor: "#2FA866",          // verde
-      pontos: 9,
+      pontos: 10,
       meta: 20,               // meta menor porque é pequeno
       premio: "Sorvete 🍦",
-      acoes: []
+      acoes: [
+        {
+          texto: "Lindos e acordaram calmos.",
+          pontos: +0,
+        },
+      ]
     },
     {
       nome: "Tasnim",
@@ -69,12 +74,12 @@ const CONFIG = {
       idade: 2,
       emoji: "🌸",
       cor: "#8E5DE8",          // roxo
-      pontos: 5,
+      pontos: 6,
       meta: 15,               // metinha de bebê 😄
       premio: "Docinho 🧁",
       acoes: [
         {
-          texto: "gritona feia. ta perdendo hasanat",
+          texto: "Lindos e acordaram calmos.",
           pontos: +0,
         },
       ]
