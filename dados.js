@@ -74,7 +74,7 @@ const CONFIG = {
       idade: 2,
       emoji: "🌸",
       cor: "#8E5DE8",          // roxo
-      pontos: 14,
+      pontos: 15,
       meta: 15,               // metinha de bebê 😄
       premio: "Docinho 🧁",
       acoes: [
