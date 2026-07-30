@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>🌟 Quadro das Estrelas da Família</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌟</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@500;700;800&family=Nunito:wght@600;800;900&display=swap" rel="stylesheet">
 <style>
@@ -110,6 +111,17 @@
   h1 .spark{display:inline-block;animation:sparkDance 2.4s ease-in-out infinite;}
   h1 .spark:last-child{animation-delay:1.2s;}
   @keyframes sparkDance{0%,100%{transform:rotate(-12deg) scale(1)}50%{transform:rotate(12deg) scale(1.25)}}
+  .rainbow-text{
+    text-shadow:none;
+    background:linear-gradient(90deg,#FF5D8F,#FFB03A,#3FBF7F,#5CC8FF,#9B6BFF,#FF5D8F);
+    background-size:300% 100%;
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    animation:rainbowSlide 7s linear infinite;
+    filter:drop-shadow(0 3px 0 #fff) drop-shadow(0 6px 0 rgba(59,43,96,.12));
+  }
+  @keyframes rainbowSlide{to{background-position:300% 0}}
+  body.noite h1 .rainbow-text{filter:drop-shadow(0 3px 0 #2B2C6B) drop-shadow(0 6px 0 rgba(0,0,0,.3));}
+  h1{cursor:pointer;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;}
   .frase{
     font-size:clamp(16px,2.6vw,22px);font-weight:900;background:#fff;
     display:inline-block;padding:10px 26px;border-radius:999px;
@@ -148,7 +160,17 @@
     display:flex;align-items:flex-end;justify-content:center;gap:10px;
     max-width:620px;margin:22px auto 0;height:200px;
   }
-  .coluna{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:170px;}
+  .coluna{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;flex:1;max-width:170px;position:relative;}
+  .podio-crown{
+    position:absolute;top:-38px;left:50%;transform:translateX(-50%);
+    font-size:34px;z-index:3;pointer-events:none;
+    filter:drop-shadow(0 2px 2px rgba(0,0,0,.2));
+    animation:podioCrown 1.8s ease-in-out infinite;
+  }
+  @keyframes podioCrown{
+    0%,100%{transform:translateX(-50%) translateY(0) rotate(-8deg)}
+    50%{transform:translateX(-50%) translateY(-7px) rotate(8deg)}
+  }
   .degrau-avatar{
     font-size:44px;width:66px;height:66px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;
@@ -197,6 +219,8 @@
     from{opacity:0;transform:translateY(50px) scale(.7) rotate(-3deg)}
     to{opacity:1;transform:translateY(0) scale(1) rotate(0)}
   }
+  .card{transition:transform .25s cubic-bezier(.2,1.4,.4,1),box-shadow .25s;}
+  .card:hover{transform:translateY(-8px) rotate(-.6deg) !important;}
   .card.leader{
     border-color:var(--gold);
     box-shadow:0 10px 0 rgba(255,198,61,.5),0 0 34px rgba(255,198,61,.55);
@@ -397,6 +421,18 @@
   }
   #confetti{position:fixed;inset:0;pointer-events:none;z-index:50;}
 
+  /* ---------- TRILHA MÁGICA (dedo/mouse) ---------- */
+  .trail{
+    position:fixed;pointer-events:none;z-index:45;
+    transform:translate(-50%,-50%);
+    animation:trailFade .9s ease-out forwards;
+    filter:drop-shadow(0 1px 1px rgba(0,0,0,.15));
+  }
+  @keyframes trailFade{
+    0%{opacity:1;transform:translate(-50%,-50%) scale(.4) rotate(0deg)}
+    100%{opacity:0;transform:translate(-50%,-140%) scale(1.35) rotate(50deg)}
+  }
+
   .mascote{
     position:fixed;left:14px;bottom:12px;z-index:40;
     display:flex;align-items:flex-end;gap:8px;
@@ -445,7 +481,7 @@
 <div class="sky" id="sky"></div>
 
 <header>
-  <h1><span class="spark">🌟</span> Quadro das Estrelas <span class="spark">🌟</span></h1>
+  <h1><span class="spark">🌟</span> <span class="rainbow-text" id="titulo">Quadro das Estrelas</span> <span class="spark">🌟</span></h1>
   <br>
   <div class="frase" id="fraseDia"></div>
   <br>
@@ -670,6 +706,42 @@ function mostrarToast(msg){
   setTimeout(()=>t.remove(), 2700);
 }
 
+/* ---------- Trilha mágica: estrelinhas seguem o dedo/mouse ---------- */
+function trilhaMagica(){
+  if(reduzMovimento) return;
+  const emojis=["⭐","✨","🌟","💫","💖"];
+  let ultimo=0;
+  function soltar(x,y,qtd){
+    for(let i=0;i<qtd;i++){
+      const s=document.createElement("div");
+      s.className="trail";
+      s.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+      s.style.left=(x+(Math.random()*30-15))+"px";
+      s.style.top=(y+(Math.random()*30-15))+"px";
+      s.style.fontSize=(13+Math.random()*13)+"px";
+      document.body.appendChild(s);
+      setTimeout(()=>s.remove(), 950);
+    }
+  }
+  window.addEventListener("pointermove", e=>{
+    const agora=performance.now();
+    if(agora-ultimo<70) return;
+    ultimo=agora;
+    soltar(e.clientX, e.clientY, 1);
+  }, {passive:true});
+  window.addEventListener("pointerdown", e=>soltar(e.clientX, e.clientY, 6), {passive:true});
+}
+
+/* ---------- Segredo: tocar no título solta festa! ---------- */
+function ligarTitulo(){
+  document.getElementById("titulo").addEventListener("click", ()=>{
+    tocar("festa");
+    mostrarToast("🌟 QUADRO DAS ESTRELAS! 🌟");
+    if(eNoite) fogos();
+    else confete(["#FF5D8F","#FFB03A","#3FBF7F","#5CC8FF","#9B6BFF"], 110);
+  });
+}
+
 /* ---------- Contadores animados ---------- */
 function contarAte(el, total, dur=1300){
   if(reduzMovimento){ el.textContent=total; return; }
@@ -727,6 +799,7 @@ function montarPodio(ordenados){
   podio.innerHTML = ordem.map(i=>{
     const f=top[i];
     return `<div class="coluna c${i+1}" style="--kid:${f.cor}">
+      ${i===0?'<div class="podio-crown">👑</div>':''}
       <div class="degrau-avatar">${f.emoji}</div>
       <div class="degrau-nome">${f.nome}</div>
       <div class="degrau" style="--alt:${alturas[i]}">
@@ -946,6 +1019,8 @@ function carregarDados(){
 montarCeu();
 ligarRelogio();
 ligarMascote();
+trilhaMagica();
+ligarTitulo();
 carregarDados();
 
 // 🔄 Tablet na parede: recarrega sozinho a cada 10 minutos
