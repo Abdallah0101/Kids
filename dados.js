@@ -26,10 +26,14 @@ const CONFIG = {
       idade: 10,
       emoji: "🦋",
       cor: "#E85D9E",          // rosa
-      pontos: 2,
+      pontos: 11,
       meta: 30,
       premio: "Chocolate grande 🍫",
       acoes: [
+        {
+          texto: "Ganhou estrelas extras!",
+          pontos: +9,
+        },
         {
           texto: "Lindos e acordaram calmos.",
           pontos: +0,
@@ -42,10 +46,14 @@ const CONFIG = {
       idade: 5,
       emoji: "🦁",
       cor: "#F5921B",          // laranja
-      pontos: 6,
+      pontos: 16,
       meta: 30,
       premio: "Brinquedo surpresa 🎁",
       acoes: [
+        {
+          texto: "Ganhou estrelas extras!",
+          pontos: +10,
+        },
         {
           texto: "Lindos e acordaram calmos.",
           pontos: +0,
