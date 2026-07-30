@@ -31,10 +31,6 @@ const CONFIG = {
       premio: "Chocolate grande 🍫",
       acoes: [
         {
-          texto: "Ajuste de estrelas.",
-          pontos: +5,
-        },
-        {
           texto: "Lindos e acordaram calmos.",
           pontos: +0,
         },
@@ -50,10 +46,6 @@ const CONFIG = {
       meta: 30,
       premio: "Brinquedo surpresa 🎁",
       acoes: [
-        {
-          texto: "Ajuste de estrelas.",
-          pontos: +1,
-        },
         {
           texto: "Lindos e acordaram calmos.",
           pontos: +0,
