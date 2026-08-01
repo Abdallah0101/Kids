@@ -42,7 +42,7 @@ const CONFIG = {
       idade: 5,
       emoji: "🦁",
       cor: "#F5921B",          // laranja
-      pontos: 23,
+      pontos: 25,
       meta: 30,
       premio: "Brinquedo surpresa 🎁",
       acoes: [
